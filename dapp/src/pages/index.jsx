@@ -1,9 +1,9 @@
 import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import DappLayout from "../components/layouts/DappLayout";
 import ContextProvider from "../utils/contexts";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StakeScreen from "./stake";
 import JackpotScreen from "./jackpot";
+import StakeScreen from "./stake";
 
 function Root() {
   return (

@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import { ethers } from "ethers";
 import React, { useEffect } from "react";
 import LoadingComponent from "../../components/LoadingComponent";
 import tokenContext from "../../utils/contexts/useToken";
@@ -14,13 +13,15 @@ import StakingContract from "../../utils/ethers/contracts/stakes";
 const STAKING_POOLS = [
   {
     poolName: "POOL ICHI",
-    poolAddress: "0x694398aAB7021A256b016bd3B796403F9cc8C3aF",
+    poolAddress: import.meta.env.VITE_WCG_POOL_ICHI,
   },
   {
     poolName: "POOL NI",
-    poolAddress: "0x62e64bA193d41A27d872365201c12e570B4DCaD4",
+    poolAddress: import.meta.env.VITE_WCG_POOL_NI,
   },
 ];
+
+console.log({ STAKING_POOLS });
 
 function StakeScreen() {
   const [activePool, setActivePool] = React.useState(0);

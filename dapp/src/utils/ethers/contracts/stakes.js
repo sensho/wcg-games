@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import abi from "../../../artifacts/WifeChangingGameStakes.json";
 import { ethers_signer } from "..";
+
 class StakingContract {
   constructor(address) {
     this.contractAddress = address;

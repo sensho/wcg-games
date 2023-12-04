@@ -1,22 +1,9 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// When running the script with `npx hardhat run <script>` you'll find the Hardhat
-// Runtime Environment's members available in the global scope.
 const dayjs = require("dayjs");
 const hre = require("hardhat");
+const fs = require("fs");
 const { ethers } = hre;
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
-
-  // We get the contract to deploy
-
   const account = (await hre.ethers.getSigners())[0];
   let tx;
 
@@ -40,6 +27,8 @@ async function main() {
 
   await token.deployed();
 
+  const wcgTokenAddress = token.address;
+
   console.log("WCG Token deployed to:", token.address);
 
   tx = await token.enableTrading();
@@ -59,6 +48,9 @@ async function main() {
   let stakes = await WifeChangingGameStakes.deploy(...stakesParameters);
 
   await stakes.deployed();
+
+  const poolIchiAddress = stakes.address;
+  const poolIchiParams = stakesParameters;
 
   console.log("Pool Ichi deployed to:", stakes.address);
 
@@ -85,7 +77,11 @@ async function main() {
 
   stakes = await WifeChangingGameStakes.deploy(...stakesParameters);
 
+  const poolNiParams = stakesParameters;
+
   await stakes.deployed();
+
+  const poolNiAddress = stakes.address;
 
   console.log("Pool Ni deployed to:", stakes.address);
 
@@ -99,6 +95,27 @@ async function main() {
   tx = await stakes.enableStaking();
 
   await tx.wait();
+
+  fs.writeFileSync(
+    "../deployments.json",
+    JSON.stringify({
+      poolIchi: {
+        address: poolIchiAddress,
+        arguments: poolIchiParams,
+        argumentsSerialized: poolIchiParams.map((i) => i.toString()).join(" "),
+      },
+      poolNi: {
+        address: poolNiAddress,
+        arguments: poolNiParams,
+        argumentsSerialized: poolNiParams.map((i) => i.toString()).join(" "),
+      },
+      wcgToken: {
+        address: wcgTokenAddress,
+        arguments: tokenParameters,
+        argumentsSerialized: tokenParameters.map((i) => i.toString()).join(" "),
+      },
+    })
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere

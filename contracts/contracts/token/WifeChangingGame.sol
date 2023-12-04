@@ -40,8 +40,9 @@ contract WifeChangingGame is Context, IERC20, Ownable {
     // 100%
     uint256 private constant MAX_PCT = 10000;
     uint256 private constant ETH_DECIMALS = 18;
-    uint256 private constant USDT_DECIMALS = 18;
-    address private constant USDT = 0x3B00Ef435fA4FcFF5C209a37d1f3dcff37c705aD;
+    uint256 private constant USDT_DECIMALS = 6;
+    //  SEPOLIA USDT
+    address private constant USDT = 0x7169D38820dfd117C3FA1f22a697dBA58d90BA06;
     address private constant DEAD = 0x000000000000000000000000000000000000dEaD;
 
     // At any given time, buy and sell fees can NOT exceed 25% each
@@ -228,7 +229,8 @@ contract WifeChangingGame is Context, IERC20, Ownable {
         _tOwned[cOwner] = totalSupply;
 
         uniswapV2Router = IUniswapV2Router02(
-            0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
+          // SEPOLIA UNISWAPV2ROUTER
+          0x86dcd3293C53Cf8EFd7303B57beb2a3F671dDE98
         );
 
         uniswapV2Pair = IUniswapV2Factory(uniswapV2Router.factory()).createPair(

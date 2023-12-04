@@ -1,0 +1,29 @@
+{
+	"poolIchi": {
+		"address": "0x292fC211b30905dfbAD83538Bfa4635202292974",
+		"arguments": [
+			"0x51d037683Fb940d73D9ECA3259BA994D603116AA",
+			{ "type": "BigNumber", "hex": "0x0190" },
+			{ "type": "BigNumber", "hex": "0x655a7c82" },
+			{ "type": "BigNumber", "hex": "0x0a" },
+			{ "type": "BigNumber", "hex": "0x021e19e0c9bab2400000" },
+			{ "type": "BigNumber", "hex": "0x152d02c7e14af6800000" },
+			{ "type": "BigNumber", "hex": "0x03e8" }
+		],
+		"argumentsSerialized": "0x51d037683Fb940d73D9ECA3259BA994D603116AA 400 1700428930 10 10000000000000000000000 100000000000000000000000 1000"
+	},
+	"poolNi": {
+		"address": "0xa490d793f3c874937F9E23BDd78f6783fc798330",
+		"arguments": [
+			"0x51d037683Fb940d73D9ECA3259BA994D603116AA",
+			{ "type": "BigNumber", "hex": "0x01f4" },
+			{ "type": "BigNumber", "hex": "0x6b411b65" },
+			{ "type": "BigNumber", "hex": "0x64" },
+			{ "type": "BigNumber", "hex": "0x043c33c1937564800000" },
+			{ "type": "BigNumber", "hex": "0x3f870857a3e0e3800000" },
+			{ "type": "BigNumber", "hex": "0x07d0" }
+		],
+		"argumentsSerialized": "0x51d037683Fb940d73D9ECA3259BA994D603116AA 500 1799428965 100 20000000000000000000000 300000000000000000000000 2000"
+	},
+	"wcgToken": { "address": "0x51d037683Fb940d73D9ECA3259BA994D603116AA", "arguments": ["0xCF5B123Ea094A776dD20fA07c3Ea433B54323CBd"], "argumentsSerialized": "0xCF5B123Ea094A776dD20fA07c3Ea433B54323CBd" }
+}
